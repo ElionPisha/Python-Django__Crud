@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <table border="1px">
+        <tr>
+            <th>Book name</th>
+            <th>Book description</th>
+            <th>Book price</th>
+            <td>Actions</td>
+        </tr>
+        {% for b in books_data %}
+            <tr>
+                <td>{{ b.book_name }}</td>
+                <td>{{ b.book_description }}</td>
+                <td>{{ b.book_price }}</td>
+                <td><a href="/edit-book/{{ b.id }}/">Edit</a> <a href="/delete-book/{{ b.id }}/">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    <h1>User</h1>
+    <table border="1px">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Mobile number</th>
+            <th>Birthday</th>
+        </tr>
+        {% for u in users_data %}
+            <tr>
+                <td>{{ u.first_name }}</td>
+                <td>{{ u.last_name }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.mobile_number }}</td>
+                <td>{{ u.birthday }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    <h1>User - Book</h1>
+    <table border="1px">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Mobile number</th>
+            <th>Book name</th>
+            <th>Book price</th>
+        </tr>
+        {% for ub in user_book_data %}
+            <tr>
+                <td>{{ ub.user.first_name }}</td>
+                <td>{{ ub.user.last_name }}</td>
+                <td>{{ ub.user.mobile_number }}</td>
+                <td>{{ ub.book.book_name }}</td>
+                <td>{{ ub.book.book_price }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+<br>
+<br>
+<br>
+<a href="{% url 'add_book' %}">Add BOOK</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+    <form method="post" action="{% url 'add_book' %}">
+         {% csrf_token %}
+        <label>Book name</label><br>
+        <input type="text" name="book_name"><br>
+        <label>Book description</label><br>
+        <textarea name="book_desc"></textarea><br>
+        <label>Book price</label><br>
+        <input type="text" name="book_price"><br>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>

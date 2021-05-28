@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+</head>
+<body>
+<h1>User Access</h1>
+    <table border="1px">
+        <tr>
+             <th>Book name</th>
+            <th>Book description</th>
+            <th>Book price</th>
+        </tr>
+
+
+{% for useraccess in books_data %}
+            <tr>
+                <td>{{ useraccess.book_name }}</td>
+                <td>{{ useraccess.book_description }}</td>
+                <td>{{ useraccess.book_price }}</td>
+                <td><a href="/edit-book/{{ useraccess.id }}/">Edit</a> <a href="/delete-book/{{ useraccess.id }}/">Delete</a></td>
+            </tr>
+        {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<a href="{% url 'add_book' %}">Add BOOK</a>
+</body>
+</html>
